@@ -1,22 +1,24 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - HydrometricControlWeb</title>
-
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
-              crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
-    </environment>
-    <link rel="stylesheet" href="~/css/site.css" />
+    <!-- Material Design Icons v.1.1.34 ~> https://cdn.materialdesignicons.com/1.1.34/ -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SistemaHidro</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/assets/vendors/css/vendor.bundle.addons.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/favicon.ico" />
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -40,39 +42,397 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - HydrometricControlWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+                <a class="navbar-brand brand-logo" asp-controller="Dashboard" asp-action="Index">
+                    <img src="~/assets/images/logo.svg" alt="logo" />
+                </a>
+                <a class="navbar-brand brand-logo-mini" asp-controller="Dashboard" asp-action="Index">
+                    <img src="~/assets/images/logo-mini.svg" alt="logo" />
+                </a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center">
+                <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Schedule
+                            <span class="badge badge-primary ml-1">New</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="#" class="nav-link">
+                            <i class="mdi mdi-elevation-rise"></i>Reports
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="mdi mdi-bookmark-plus-outline"></i>Score
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                            <i class="mdi mdi-file-document-box"></i>
+                            <span class="count">7</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                            <div class="dropdown-item">
+                                <p class="mb-0 font-weight-normal float-left">
+                                    You have 7 unread mails
+                                </p>
+                                <span class="badge badge-info badge-pill float-right">View all</span>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <img src="~/assets/images/faces/face4.jpg" alt="image" class="profile-pic">
+                                </div>
+                                <div class="preview-item-content flex-grow">
+                                    <h6 class="preview-subject ellipsis font-weight-medium text-dark">
+                                        David Grey
+                                        <span class="float-right font-weight-light small-text">1 Minutes ago</span>
+                                    </h6>
+                                    <p class="font-weight-light small-text">
+                                        The meeting is cancelled
+                                    </p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <img src="~/assets/images/faces/face2.jpg" alt="image" class="profile-pic">
+                                </div>
+                                <div class="preview-item-content flex-grow">
+                                    <h6 class="preview-subject ellipsis font-weight-medium text-dark">
+                                        Tim Cook
+                                        <span class="float-right font-weight-light small-text">15 Minutes ago</span>
+                                    </h6>
+                                    <p class="font-weight-light small-text">
+                                        New product launch
+                                    </p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <img src="~/assets/images/faces/face3.jpg" alt="image" class="profile-pic">
+                                </div>
+                                <div class="preview-item-content flex-grow">
+                                    <h6 class="preview-subject ellipsis font-weight-medium text-dark">
+                                        Johnson
+                                        <span class="float-right font-weight-light small-text">18 Minutes ago</span>
+                                    </h6>
+                                    <p class="font-weight-light small-text">
+                                        Upcoming board meeting
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                            <i class="mdi mdi-bell"></i>
+                            <span class="count">4</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                            <a class="dropdown-item">
+                                <p class="mb-0 font-weight-normal float-left">
+                                    You have 4 new notifications
+                                </p>
+                                <span class="badge badge-pill badge-warning float-right">View all</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-success">
+                                        <i class="mdi mdi-alert-circle-outline mx-0"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject font-weight-medium text-dark">Application Error</h6>
+                                    <p class="font-weight-light small-text">
+                                        Just now
+                                    </p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-warning">
+                                        <i class="mdi mdi-comment-text-outline mx-0"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject font-weight-medium text-dark">Settings</h6>
+                                    <p class="font-weight-light small-text">
+                                        Private message
+                                    </p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-info">
+                                        <i class="mdi mdi-email-outline mx-0"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject font-weight-medium text-dark">New user registration</h6>
+                                    <p class="font-weight-light small-text">
+                                        2 days ago
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown d-none d-xl-inline-block">
+                        <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                            <partial name="_LoginPartial" />
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                            <a class="dropdown-item p-0">
+                                <div class="d-flex border-bottom">
+                                    <div class="py-3 px-4 d-flex align-items-center justify-content-center">
+                                        <i class="mdi mdi-bookmark-plus-outline mr-0 text-gray"></i>
+                                    </div>
+                                    <div class="py-3 px-4 d-flex align-items-center justify-content-center border-left border-right">
+                                        <i class="mdi mdi-account-outline mr-0 text-gray"></i>
+                                    </div>
+                                    <div class="py-3 px-4 d-flex align-items-center justify-content-center">
+                                        <i class="mdi mdi-alarm-check mr-0 text-gray"></i>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item mt-2">
+                                Manage Accounts
+                            </a>
+                            <a class="dropdown-item">
+                                Change Password
+                            </a>
+                            <a class="dropdown-item">
+                                Check Inbox
+                            </a>
+                            <a class="dropdown-item">
+                                Sign Out
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+            </div>
+        </nav>
+        <!-- partial -->
+        @*https://cdn.materialdesignicons.com/2.1.19/*@
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item nav-profile">
+                        <div class="nav-link">
+                            <div class="user-wrapper">
+                                <div class="profile-image">
+                                    <img src="~/assets/images/faces-clipart/pic-4.png" alt="profile image">
+                                </div>
+                                <div class="text-wrapper">
+                                    <p class="profile-name">Richard V.Welsh</p>
+                                    <div>
+                                        <small class="designation text-muted">Manager</small>
+                                        <span class="status-indicator online"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<button class="btn btn-success btn-block">
+                                    New Project
+                                    <i class="mdi mdi-plus"></i>
+                                </button>*@
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Dashboard" asp-action="Index">
+                            <i class="menu-icon mdi mdi-television"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-habitacao" aria-expanded="false" aria-controls="ui-habitacao">
+                            <i class="menu-icon mdi mdi-home-variant"></i>
+                            <span class="menu-title">Habitação</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-habitacao">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Condominio" asp-action="Index">Condomínio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Unidade" asp-action="Index">Unidade</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-afericao" aria-expanded="false" aria-controls="ui-afericao">
+                            <i class="menu-icon mdi mdi-barcode-scan"></i>
+                            <span class="menu-title">Aferição</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-afericao">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Leitura" asp-action="Index">Leitura</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-referencia" aria-expanded="false" aria-controls="ui-referencia">
+                            <i class="menu-icon mdi mdi-ticket-percent"></i>
+                            <span class="menu-title">Referência</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-referencia">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Faixa" asp-action="Index">Faixa</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Imposto" asp-action="Index">Imposto</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Consumo" asp-action="Index">Consumo</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-relatorio" aria-expanded="false" aria-controls="ui-relatorio">
+                            <i class="menu-icon mdi mdi-receipt"></i>
+                            <span class="menu-title">Relatório</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-relatorio">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Conta" asp-action="Index">Conta</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="menu-icon mdi mdi-content-copy"></i>
+                            <span class="menu-title">Basic UI Elements</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/assets/pages/ui-features/buttons.html">Buttons</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/assets/pages/ui-features/typography.html">Typography</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/assets/pages/forms/basic_elements.html">
+                            <i class="menu-icon mdi mdi-backup-restore"></i>
+                            <span class="menu-title">Form elements</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/assets/pages/charts/chartjs.html">
+                            <i class="menu-icon mdi mdi-chart-line"></i>
+                            <span class="menu-title">Charts</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/assets/pages/tables/basic-table.html">
+                            <i class="menu-icon mdi mdi-table"></i>
+                            <span class="menu-title">Tables</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/assets/pages/icons/font-awesome.html">
+                            <i class="menu-icon mdi mdi-sticker"></i>
+                            <span class="menu-title">Icons</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                            <i class="menu-icon mdi mdi-restart"></i>
+                            <span class="menu-title">User Pages</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="auth">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/assets/pages/samples/blank-page.html"> Blank Page </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/assets/pages/samples/login.html"> Login </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/assets/pages/samples/register.html"> Register </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/assets/pages/samples/error-404.html"> 404 </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/assets/pages/samples/error-500.html"> 500 </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        @RenderBody()
+                    </div>
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <div class="container-fluid clearfix">
+                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">
+                            Copyright © @DateTime.Now.Year
+                            <a href="http://www.bootstrapdash.com/" target="_blank">Railson Ramés <i class="mdi mdi-glasses"></i></a> All rights reserved.
+                        </span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+                            Hand-crafted & made with
+                            <i class="mdi mdi-heart text-danger"></i>
+                        </span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
         </div>
-    </footer>
-
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
-        </script>
-    </environment>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
-    @RenderSection("Scripts", required: false)
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="~/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="~/assets/vendors/js/vendor.bundle.addons.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="~/assets/js/off-canvas.js"></script>
+    <script src="~/assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="~/assets/js/dashboard.js"></script>
+    <!-- End custom js for this page-->
+    @RenderSection("scripts", required: false)
 </body>
 </html>
