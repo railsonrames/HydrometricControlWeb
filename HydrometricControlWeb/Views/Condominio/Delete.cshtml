@@ -1,0 +1,84 @@
+﻿@model Hidro.Web.Models.Condominio
+
+@{
+    ViewData["Title"] = "Excluir | Condomínio";
+}
+
+<div class="col-md-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="btn btn-danger">Confima a exclusão do registro desse condomínio?</h4>
+
+            <div>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </dt>
+                    <dd class="col-sm-3">
+                        @Html.DisplayFor(model => model.Nome)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Endereco)
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.Endereco)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Cep)
+                    </dt>
+                    <dd class="col-sm-3">
+                        @Html.DisplayFor(model => model.Cep)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Responsavel)
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.Responsavel)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Telefone)
+                    </dt>
+                    <dd class="col-sm-3">
+                        @Html.DisplayFor(model => model.Telefone)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Cnpj)
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.Cnpj)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Ativo)
+                    </dt>
+                    <dd class="col-sm-3">
+                        @if (Model.Ativo)
+                        {
+                            <button type="button" class="btn btn-outline-success btn-fw">
+                                <i class="mdi mdi-check"></i>Ativo
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn btn-outline-danger btn-fw">
+                                <i class="mdi mdi-check"></i>Inativo
+                            </button>
+                        }
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.DataRegistro)
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.DataRegistro)
+                    </dd>
+                </dl>
+            </div>
+            <div class="text-right">
+                <form asp-action="Delete">
+                    <a asp-action="Index" class="btn btn-light mr-2">Voltar</a>
+                    <input type="submit" value="Excluir" class="btn btn-danger" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

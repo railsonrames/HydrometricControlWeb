@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Hidro.Web.Models.Condominio>
+
+@{
+    ViewData["Title"] = "Lista | Condomínio";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title mb-auto row">
+                <h4 class="title col-md-10 col-sm-8 col-xs-8">Condomínios Cadastrados</h4>
+                <p class="col-md-2 col-sm-4 col-xs-4 text-right">
+                    <a class="btn btn-inverse-primary btn-fw" asp-action="Create">Novo</a>
+                </p>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Endereco)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Responsavel)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Ativo)
+                            </th>
+                            <th class="col-md-1 text-center">
+                                Ações
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                    <br />
+                                    @Html.DisplayNameFor(model => model.Cnpj):
+                                    @Html.DisplayFor(modelItem => item.Cnpj)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Endereco)
+                                    <br>
+                                    @Html.DisplayNameFor(model => model.Cep):
+                                    @Html.DisplayFor(modelItem => item.Cep)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Responsavel)
+                                    <br>
+                                    @Html.DisplayNameFor(model => model.Telefone):
+                                    @Html.DisplayFor(modelItem => item.Telefone)
+                                </td>
+                                <td>
+                                    @if (item.Ativo)
+                                    {
+                                        <div class="text-center"><i class="btn-icons btn btn-rounded btn-inverse-outline-success mdi mdi-check"></i></div>
+                                    }
+                                    else
+                                    {
+                                        <div class="text-center"><i class="btn-icons btn btn-rounded btn-inverse-outline-danger mdi mdi-check"></i></div>
+                                    }
+                                </td>
+                                <td>
+                                    <div class="text-center">
+                                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="btn-icons btn btn-rounded btn-inverse-outline-warning mdi mdi-pencil"></i></a>
+                                        &nbsp;
+                                        <a asp-action="Details" asp-route-id="@item.Id"><i class="btn-icons btn btn-rounded btn-inverse-outline-info mdi mdi-file-document-box"></i></a>
+                                        &nbsp;
+                                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="btn-icons btn btn-rounded btn-inverse-outline-danger mdi mdi-recycle"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //$(document).ready(function () {
+
+    //});
+</script>
