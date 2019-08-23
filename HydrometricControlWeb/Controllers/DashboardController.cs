@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using HydrometricControlWeb.Models;
 using Microsoft.AspNetCore.Mvc;
-using sistemaHidro.Models;
 
 namespace Hidro.Web.Controllers.Dashboard
 {

@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Hidro.Web.Models
+namespace HydrometricControlWeb.Services.Models
 {
-    public class Imposto
+    public class ImpostoDTO
     {
         public Guid Id { get; set; }
         public string Nome { get; set; }
@@ -15,8 +15,8 @@ namespace Hidro.Web.Models
         public DateTime DataRegistro { get; set; }
         public bool ExclusaoLogica { get; set; }
 
-        public IEnumerable<Faixa> Faixas { get; set; }
-        public IEnumerable<Consumo> Consumos { get; set; }
-        public IEnumerable<Leitura> Leituras { get; set; }
+        public IEnumerable<FaixaDTO> Faixas { get; set; }
+        public IEnumerable<ConsumoDTO> Consumos { get; set; }
+        public IEnumerable<LeituraDTO> Leituras { get; set; }
     }
 }
